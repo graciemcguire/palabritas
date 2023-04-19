@@ -1,7 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-export default StyleSheet.create( {
-
+export default StyleSheet.create({
   Row: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -19,7 +18,7 @@ export default StyleSheet.create( {
 
   main: {
     marginTop: 75,
+    alignItems: 'center',
     // backgroundColor: 'red'
   },
-
 });
