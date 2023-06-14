@@ -28,6 +28,41 @@ export default StyleSheet.create({
   main: {
     marginTop: 75,
     alignItems: 'center',
-    // backgroundColor: 'red'
+    justifyContent: 'space-between',
+    flex: 1,
+  },
+
+  defaultKey: {
+    justifyContent: 'center',
+    backgroundColor: '#d3d6da',
+    padding: 8,
+    margin: 3,
+    border: 0,
+    marginLeft: 6,
+    height: 50,
+    borderRadius: 4,
+  },
+  especialKey: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#d3d6da',
+    padding: 8,
+    margin: 3,
+    border: 0,
+    marginLeft: 6,
+    height: 52,
+    width: 60,
+    borderRadius: 4,
+  },
+
+  keyboard: {
+    flexDirection: 'column',
+    marginBottom: 30,
+  },
+
+  keyboardRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 10,
   },
 });

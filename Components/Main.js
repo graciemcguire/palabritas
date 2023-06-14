@@ -3,16 +3,25 @@ import {Text, View, SafeAreaView} from 'react-native';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import Square from './Square';
 import styles from './styles';
+import Keyboard from './Keyboard'
 
 export default function Main() {
   const [currentRow, setCurrentRow] = useState(0);
   const [guess, setGuess] = useState('');
   const [guessResult, setGuessResult] = useState({});
 
-  const checkGuess = () => {
-    let guessResult = {};
-    let word = ['c', 'a', 'l', 'o', 'r'];
-    let splitGuess = guess.split('');
+  return (
+    <SmoothPinCodeInput
+      ref={this.pinInput}
+      value={guess}
+      onTextChange={code => setGuess(code)}
+      onFulfill={completeGuess => checkGuess(completeGuess, setGuessResult)}
+      onBackspace={this._focusePrevInput}
+      codeLength={5}
+      // cellStyle={{backgroundColor: 'yellow'}}
+    />
+  );
+};
 
     splitGuess.map((letter, key) => {
       // if a letter is correct status code 2
@@ -95,6 +104,7 @@ export default function Main() {
           }
         })}
       </View>
+      <Keyboard />
     </SafeAreaView>
   );
 }
