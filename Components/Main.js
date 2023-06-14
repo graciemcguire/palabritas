@@ -2,26 +2,18 @@ import React, {useState, setState} from 'react';
 import {Text, View, SafeAreaView} from 'react-native';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import Square from './Square';
+import Keyboard from './Keyboard';
 import styles from './styles';
-import Keyboard from './Keyboard'
 
 export default function Main() {
   const [currentRow, setCurrentRow] = useState(0);
   const [guess, setGuess] = useState('');
   const [guessResult, setGuessResult] = useState({});
 
-  return (
-    <SmoothPinCodeInput
-      ref={this.pinInput}
-      value={guess}
-      onTextChange={code => setGuess(code)}
-      onFulfill={completeGuess => checkGuess(completeGuess, setGuessResult)}
-      onBackspace={this._focusePrevInput}
-      codeLength={5}
-      // cellStyle={{backgroundColor: 'yellow'}}
-    />
-  );
-};
+  const checkGuess = () => {
+    let guessResult = {};
+    let word = ['c', 'a', 'l', 'o', 'r'];
+    let splitGuess = guess.split('');
 
     splitGuess.map((letter, key) => {
       // if a letter is correct status code 2
@@ -41,7 +33,6 @@ export default function Main() {
     // each word is coming in as a string, we need to check each letter against eachother
     // check if each letter is in the word at all / in the correct position
   };
-
   const CompleteRow = () => {
     return (
       <View style={styles.Row}>
@@ -63,7 +54,6 @@ export default function Main() {
       </View>
     )
   }
-
   const EmptyRow = () => {
     return (
       <View style={styles.Row}>
@@ -75,9 +65,7 @@ export default function Main() {
       </View>
     )
   }
-
   const InputRow = () => {
-
     return (
       <SmoothPinCodeInput
         ref={this.pinInput}
@@ -89,7 +77,6 @@ export default function Main() {
       />
     );
   };
-
   console.log({currentRow: currentRow})
   return (
     <SafeAreaView style={styles.main}>
@@ -104,7 +91,7 @@ export default function Main() {
           }
         })}
       </View>
-      <Keyboard />
+      <Keyboard/>
     </SafeAreaView>
   );
 }
