@@ -4,6 +4,7 @@ import SmoothPinCodeInput from 'react-native-smooth-pincode-input';
 import Square from './Square';
 import Keyboard from './Keyboard';
 import styles from './styles';
+import { pickAnswer } from '../utils/dictionary';
 
 export default function Main() {
   const [currentRow, setCurrentRow] = useState(0);
@@ -12,7 +13,8 @@ export default function Main() {
 
   const checkGuess = () => {
     let guessResult = {};
-    let word = ['c', 'a', 'l', 'o', 'r'];
+    let answer = pickAnswer()
+    let word = answer.word.split('');
     let splitGuess = guess.split('');
 
     splitGuess.map((letter, key) => {
@@ -28,7 +30,7 @@ export default function Main() {
     });
     setGuessResult(guessResult);
     setCurrentRow(currentRow + 1);
-    console.log({currentRow})
+    console.log({answer, word})
     setGuess('')
     // each word is coming in as a string, we need to check each letter against eachother
     // check if each letter is in the word at all / in the correct position
